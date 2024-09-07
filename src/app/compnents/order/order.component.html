@@ -1,0 +1,47 @@
+<section class="container rounded shadow bg-main-light p-3 w-75 mx-auto my-3">
+    <h1 class="h3">ShippingAddres</h1>
+
+    <form [formGroup]="orders" (ngSubmit)="orderSubmit()">
+        <div>
+            <label for="addres">
+                Addres
+            </label>
+            <textarea formControlName="details" class="form-control" id="addres"></textarea>
+
+            @if (orders.get('details')?.getError('required') && orders.get('details')?.touched) {
+                <div class="alert alert-danger mt-2">
+                    <p>Address Is Required</p>
+                </div>
+            }
+        </div>
+        <div>
+            <label for="phone">
+                Phone
+            </label>
+            <input formControlName="phone" id="phone" type="tel" class="form-control" >
+            @if (orders.get('phone')?.getError('required') && orders.get('phone')?.touched) {
+                <div class="alert alert-danger mt-2">
+                    <p>Phone Is Required</p>
+                </div>
+            }
+        </div>
+        <div>
+            <label for="city">
+                City
+            </label>
+            <input formControlName="city" id="cite" type="text" class="form-control" >
+            @if (orders.get('city')?.getError('required') && orders.get('city')?.touched) {
+                <div class="alert alert-danger mt-2">
+                    <p>City Is Required</p>
+                </div>
+            }
+        </div>
+
+        <button [disabled]="orders.invalid || isLoading " class="btn-main my-4">Confirm
+
+            @if (isLoading) {
+                <i class="fas fa-spin fa-spinner"></i>
+            }
+        </button>
+    </form>
+</section>
