@@ -2,7 +2,6 @@ import { authGuard } from './core/guard/auth.guard';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { Routes } from '@angular/router';
 import { BlankLayoutComponent } from './layouts/blank-layout/blank-layout.component';
-import { NotfoundComponent } from './components/notfound/notfound.component';
 import path from 'path';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -18,6 +17,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { AllordersComponent } from './components/allorders/allorders.component';
 import { OrderComponent } from './compnents/order/order.component';
 import { WishListComponent } from './components/wish-list/wish-list.component';
+import { NotfoundComponent } from './components/notfound/notfound.component';
 
 export const routes: Routes = [
     {path:'',component:AuthLayoutComponent,canActivate:[logedGuard],children:[
@@ -40,5 +40,5 @@ export const routes: Routes = [
         {path:'wishlist',component:WishListComponent,title:'Wish List'},
 
     ]},
-    {path:'**',component:NotfoundComponent}
+    {path:'**',component:NotfoundComponent,title:'Error 404'}
 ];

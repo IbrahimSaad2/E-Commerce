@@ -72,6 +72,7 @@ export class DetalisComponent implements OnInit {
       next:(res)=>{
         console.log(res);
         this._ToastrService.success(res.message);
+        this._CartService.cartNumber.next(res.numOfCartItems)
       },
       
       error:(err)=>{

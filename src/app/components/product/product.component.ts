@@ -51,6 +51,7 @@ addCart(id:string):void{
     next:(res)=>{
       console.log(res);
       this._ToastrService.success(res.message);
+      this._CartService.cartNumber.next(res.numOfCartItems)
     },
     
     error:(err)=>{

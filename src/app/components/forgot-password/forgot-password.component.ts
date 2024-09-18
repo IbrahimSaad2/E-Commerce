@@ -64,7 +64,7 @@ export class ForgotPasswordComponent {
     this._AuthService.codeVerify(this.verfiCode.value).subscribe({
       next:(res)=>{
         console.log(res)
-        if(res.statusMsg == 'Success'){
+        if(res.status == 'Success'){
           this.step = 3;
         }
         this.isloading = false
@@ -82,11 +82,11 @@ export class ForgotPasswordComponent {
 step3():void{
   this.isloading = true
 
-  this._AuthService.codeVerify(this.resetPassword.value).subscribe({
+  this._AuthService.resetPassword(this.resetPassword.value).subscribe({
     next:(res)=>{
       console.log(res)
-      localStorage.setItem('userData', res.token)
-      this._Router.navigate(['/home'])
+      localStorage.setItem('UserToken', res.token)
+      this._Router.navigate(['home'])
     },
     error:(err)=>{
       console.log(err)
