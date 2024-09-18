@@ -28,7 +28,5 @@ ngOnInit(): void {
       this.numberCart = data
     }
   })
-}
-  
-
+ }
 }

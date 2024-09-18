@@ -1,7 +1,7 @@
 import { routes } from './../../app.routes';
 import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgClass } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../core/services/auth.service';
@@ -29,7 +29,7 @@ export class LoginComponent {
 
   loginForm:FormGroup  = this._FormBuilder.group( {
     email:[null, [Validators.required,Validators.email]],
-    password:[null, [Validators.required , Validators.pattern(/^\w{6,}$/)]],
+    password: [null, [Validators.required, Validators.pattern(/^[\w!@#$%^&*]{6,}$/)]],
   } );
 
 

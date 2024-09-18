@@ -4,7 +4,7 @@ export const headerInterceptor: HttpInterceptorFn = (req, next) => {
 
   
 
-  if(localStorage.getItem('UserToken') !== undefined){
+  if(localStorage.getItem('UserToken') !== null){
     req = req.clone({
       setHeaders:{
         token : localStorage.getItem('UserToken')!

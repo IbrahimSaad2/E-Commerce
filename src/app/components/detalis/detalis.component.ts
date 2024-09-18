@@ -48,7 +48,7 @@ export class DetalisComponent implements OnInit {
     nav: false
   }
 
-  ngOnInit(): void {
+  ngOnInit():void {
       this._ActivatedRoute.paramMap.subscribe({
         next:(p)=>{
           console.log(p.get('Id'));
